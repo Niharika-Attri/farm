@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Select from "react-select";
 import plusIcon from '../assets/plus.svg';
 import  axios  from "axios";
+import "react-toastify/dist/ReactToastify.css"; 
 
 function AddBar(){    
     const[isOpen, setIsOpen] = useState(false);
@@ -55,10 +56,12 @@ function AddBar(){
         try{
             const response = await axios.post('http://localhost:8000/book/add', formData);
             console.log('response: ', response);
+            setSuccessResponse(response.data['message'])
+            console.log('response data', successResponse);
 
-            if (response.data.statuscode === 200) {
-                console.log("Book added successfully:", response.data.message);
-                setSuccessResponse(response.data.message)
+            if (response.data['statuscode'] === 200) {
+                setSuccessResponse(response.data['message'])
+                console.log("Book added successfully:", successResponse)
                 
                 // Reset the form after successful submission
                 setFormData({
@@ -71,8 +74,9 @@ function AddBar(){
                 });
                 alert("Book added successfully!");
             }else{
-                console.log('an error occured ', response.data.message);
-                setErrorResponse(response.data.message)
+                setErrorResponse(response.data['message'])
+                alert("An error occured: "+ errorResponse)
+                console.log('an error occured ', errorResponse);
             }
         }catch (error) {
             console.error("Error adding book:", error);
@@ -216,6 +220,7 @@ function AddBar(){
                 <div     className="absolute top-1/2 left-0 transform -translate-y-1/2 flex items-center justify-center bg-white w-8 h-8 rounded-full shadow-md" style={{ left: "5px" }}>
                     <img src={plusIcon} alt="plus icon"/>
                 </div>
+                <h3 className="text-white font-medium text-xl pl-3">Add</h3>
             </button>
         </div>
         

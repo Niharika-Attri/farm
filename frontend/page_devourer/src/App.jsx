@@ -1,7 +1,7 @@
 import AddBar from "./components/addbar";
 import Card from "./components/card";
+import CardContainer from "./components/cardcontainer";
 import SearchBar from "./components/searchbar";
-import canddimg from "./assets/cand.png"
 
 function App() {
   return (
@@ -12,12 +12,7 @@ function App() {
           <div className="flex w-full pl-12 pr-12">
             <AddBar/>
           </div>
-          <div className="flex-grow w-full pl-12 pr-12 grid grid-cols-3">
-            <Card url={canddimg}/>
-            <Card/>
-            <Card/>
-            <Card/>
-          </div>
+          <CardContainer/>
         </div>
       </div>
     </div>

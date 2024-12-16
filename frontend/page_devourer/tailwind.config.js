@@ -28,7 +28,8 @@ export default {
       'textcolour':'#1E1E1E',
       'purple':'#D1B7FF',
       'orange':'#FF5732',
-      'white':'#FFFFFF'
+      'white':'#FFFFFF',
+      'darkpurple':'#B6A6D2'
     },
     
     
