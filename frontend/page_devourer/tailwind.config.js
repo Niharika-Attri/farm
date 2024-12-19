@@ -21,16 +21,17 @@ export default {
       boxShadow: {
         'custom-shadow': '0px 4px 20px rgba(0, 0, 0, 0.25)',
       },
+      colors: {
+        'dark': "#EFEFED",
+        'light':"#F7F7F5",
+        'textcolour':'#1E1E1E',
+        'purple':'#D1B7FF',
+        'orange':'#FF5732',
+        'white':'#FFFFFF',
+        'darkpurple':'#B6A6D2'
+      },
     },
-    colors: {
-      'dark': "#EFEFED",
-      'light':"#F7F7F5",
-      'textcolour':'#1E1E1E',
-      'purple':'#D1B7FF',
-      'orange':'#FF5732',
-      'white':'#FFFFFF',
-      'darkpurple':'#B6A6D2'
-    },
+    
     
     
   },

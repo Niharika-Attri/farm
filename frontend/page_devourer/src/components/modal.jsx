@@ -12,7 +12,7 @@ function Modal({ book, onClose, onUpdate, onDelete }) {
   };
 
   return (
-    <div className="fixed inset-0 flex justify-center items-center bg-dark bg-opacity-50 z-50">
+    <div className="fixed inset-0 flex justify-center items-center bg-dark bg-opacity-50 z-50 overflow-hidden">
       <div className="bg-white p-6 rounded-2xl w-96 shadow-lg">
         <h3 className="font-bold text-xl">{book.title}</h3>
         <p className="text-textcolour">{book.author}</p>
@@ -30,7 +30,7 @@ function Modal({ book, onClose, onUpdate, onDelete }) {
         </div>
 
         <div className="mt-4 flex justify-between">
-          <button onClick={onClose} className="bg-gray-300 px-4 py-2 rounded-md">
+          <button onClick={onClose} className="bg-gray-300 px-4 py-2 rounded-full hover:bg-dark">
             Close
           </button>
           <div className="flex gap-2">

@@ -53,7 +53,7 @@ async def delete_book(id: str) -> dict:
     deleted_book = await collection.find_one_and_delete({"_id": ObjectId(id)})
     return book_helper(deleted_book)
 
-async def update_book(id: str, book_data: dict) -> dict:
+async def update_book(id: str, book_data: dict) -> dict: 
     updated_book = await collection.find_one_and_update(
         {"_id": ObjectId(id)},
         {"$set": book_data},  

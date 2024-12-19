@@ -1,6 +1,6 @@
 function Card(props) {
     return (
-        <div className="flex-col justify-center w-60 h-60 bg-light rounded-3xl shadow-custom-shadow pt-5 p-4">
+        <div className="flex-col items-center justify-center w-72 h-60 sm:w-60 sm:h-60 bg-light rounded-3xl shadow-custom-shadow p-5">
             <h4 className="font-bold text-xl">{props.title}</h4>
             <h5 className="text-sm text-gray-600">{props.author}</h5>
             <p className="text-xs text-gray-500 line-clamp-3">{props.description}</p>

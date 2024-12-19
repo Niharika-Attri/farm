@@ -5,16 +5,15 @@ import SearchBar from "./components/searchbar";
 
 function App() {
   return (
-    <div className="flex items-center justify-center w-screen h-screen">
-      <div className="flex flex-col items-center justify-center w-full h-full pb-5 ">
+    <div className="flex flex-col items-center justify-center min-h-screen ">
         <SearchBar />
-        <div className="flex flex-col items-center w-2/3 h-6/7 bg-dark mt-2 rounded-2xl">
-          <div className="flex w-full pl-12 pr-12">
+        <div className="flex flex-col items-center w-4/5 md:w-3/4 xl:w-2/3 h-6/7 pb-5 pl-8 pr-8 sm:pl-12 sm:pr-12 bg-dark mt-1 rounded-2xl ">
+          <div className="flex w-full ">
             <AddBar/>
-          </div>
+          </div >
           <CardContainer/>
         </div>
-      </div>
+      
     </div>
   );
 }

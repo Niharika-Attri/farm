@@ -2,13 +2,14 @@ import React, { useState, useRef, useEffect } from "react";
 import Select from "react-select";
 import plusIcon from '../assets/plus.svg';
 import  axios  from "axios";
+import Notification from "./notification";
 import "react-toastify/dist/ReactToastify.css"; 
 
 function AddBar(){    
     const[isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
-    const [errorResponse, setErrorResponse] = useState('')
-    const [successResponse, setSuccessResponse] = useState('')
+    const [errorMessage, setErrorMessage] = useState('')
+    const [successMessage, setSuccessMessage] = useState('')
 
     const [formData, setFormData] = useState({
         title: '',
@@ -56,12 +57,12 @@ function AddBar(){
         try{
             const response = await axios.post('http://localhost:8000/book/add', formData);
             console.log('response: ', response);
-            setSuccessResponse(response.data['message'])
+            setSuccessMessage(response.data['message'])
             console.log('response data', successResponse);
 
             if (response.data['statuscode'] === 200) {
-                setSuccessResponse(response.data['message'])
-                console.log("Book added successfully:", successResponse)
+                setSuccessMessage(response.data['message'])
+                console.log("Book added successfully:", successMessage)
                 
                 // Reset the form after successful submission
                 setFormData({
@@ -119,7 +120,11 @@ function AddBar(){
     }, [])
 
     return(
-        <div className="flex relative w-full mt-4 h-11 bg-white rounded-full mb-4" ref={dropdownRef}>
+        
+        <div className="flex relative w-full mt-4 h-9 bg-white rounded-full mb-4" ref={dropdownRef}>
+            {errorMessage && <Notification message={errorMessage} type="error" />}
+            {successMessage && <Notification message={successMessage} type="success" />}
+
             <input className="flex w-full bg-white rounded-full focus:outline-none pl-6" onClick={toggleDropdown}/>
 
             {isOpen && (
